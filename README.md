@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Desafio do curso Tour pelo Next.js
 
-## Getting Started
+## Objetivo
 
-First, run the development server:
+- Ver na prática como as props chegam na página;
+- Entender a ordem de execução de uma aplicação Next.js;
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Sobre o projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Foram criadas paginas para demonstrar o SSR, SSG e ISR (com `revalidate` de 10 segundos). Cada página, seus métodos de _pre-rendering_ e os componentes de `_app.js` e `_document.js` possuem um `console.log` indicando quando eles são executados.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Instruções
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Setup
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- clone o projeto e instale as dependências
+- execute `npm run build` para que o ISR e SSG funcionem em modo de produção
+- execute o projeto com `npm run start`
 
-## Learn More
+### Conteúdo
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Preste atenção nos `console.log` para determinar a ordem de execução das funções
+- Quais `console.log` rodam do lado do cliente e quais rodam no lado do servidor?
+- Quais `console.log` são disparados quando a pagina `/isr` é acessada pela primeira vez? Faça uma requisição nova em um tempo menor que 10 segundos e outra após.
+- Verifique se o `props` retornado por `getStaticProps` ou `getServerSideProps` são iguais ao `pageProps` do `_app.js`
